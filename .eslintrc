@@ -1,0 +1,55 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint",  "import"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "rules": {
+    "strict": "off",
+    "import/no-cycle": "error",
+    "import/no-duplicates": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/named": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "unknown", "internal", ["parent", "sibling", "index"]],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "builtin",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "warnOnUnassignedImports": true,
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/extensions": ["error", { "ts": "never", "tsx": "never", "json": "always" }],
+    "import/no-unresolved": [2, { "commonjs": true, "amd": true }],
+    "import/no-unused-modules": [1, { "missingExports": true }],
+    "@typescript-eslint/object-curly-spacing": ["error", "always"]
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "paths": ["node_modules", "./"]
+      },
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "extends": "@serverless/eslint-config/node"
+}
