@@ -9,13 +9,15 @@ bot.help((ctx) => ctx.reply('Help in process'));
 bot.start((ctx) => ctx.reply('Welcome, bro!'));
 bot.command('whoami', (ctx) => ctx.reply('Test command'));
 bot.command('context', (ctx) => {
-  ctx.reply(JSON.stringify({ botInfo:ctx.botInfo, message:ctx.message, state: ctx.state }, null, 2));
+  ctx.reply(
+    JSON.stringify({ botInfo: ctx.botInfo, message: ctx.message, state: ctx.state }, null, 2)
+  );
 });
 
 bot.command('getpicture', async (ctx: Context) => {
   try {
     const response: Response = await fetch('https://api.imgflip.com/get_memes');
-    const data = await response.json() as { data: { memes: { url: string }[] } };
+    const data = (await response.json()) as { data: { memes: { url: string }[] } };
 
     const number = Math.ceil(Math.random() * 100);
 

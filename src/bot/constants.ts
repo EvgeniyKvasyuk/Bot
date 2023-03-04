@@ -6,5 +6,5 @@ export const COMMANDS = [
   {
     command: 'getpicture',
     description: 'Get picture from your message text',
-  }
+  },
 ];

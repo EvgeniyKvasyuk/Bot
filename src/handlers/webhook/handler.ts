@@ -2,7 +2,6 @@ import { bot } from '@bot';
 import { formatJSONResponse } from '@libs/api-gateway';
 import { middyfy } from '@libs/lambda';
 
-
 const webhook = async (event, context) => {
   context.callbackWaitsForEmptyEventLoop = false;
   try {

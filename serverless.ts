@@ -3,7 +3,6 @@ import type { AWS } from '@serverless/typescript';
 import { webhook, setWebhook } from '@handlers';
 
 const serverlessConfiguration: AWS = {
-
   service: 'bot',
   frameworkVersion: '3',
   plugins: ['serverless-esbuild', 'serverless-dotenv-plugin', 'serverless-offline'],
