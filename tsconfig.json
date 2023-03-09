@@ -11,7 +11,7 @@
     "outDir": "lib",
     "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "serverless.ts", "prettier.config.js"],
+  "include": ["src/**/*.ts", "serverless.ts", "prettier.config.js", "webpack.config.js"],
   "exclude": [
     "node_modules/**/*",
     ".serverless/**/*",

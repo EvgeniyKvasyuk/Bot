@@ -5,7 +5,7 @@ import { webhook, setWebhook } from '@handlers';
 const serverlessConfiguration: AWS = {
   service: 'bot',
   frameworkVersion: '3',
-  plugins: ['serverless-esbuild', 'serverless-dotenv-plugin', 'serverless-offline'],
+  plugins: ['serverless-webpack', 'serverless-esbuild', 'serverless-dotenv-plugin', 'serverless-offline'],
   provider: {
     name: 'aws',
     runtime: 'nodejs14.x',
@@ -23,16 +23,20 @@ const serverlessConfiguration: AWS = {
   functions: { webhook, setWebhook },
   package: { individually: true },
   custom: {
-    esbuild: {
-      bundle: true,
-      minify: false,
-      sourcemap: true,
-      exclude: ['aws-sdk'],
-      target: 'node14',
-      define: { 'require.resolve': undefined },
-      platform: 'node',
-      concurrency: 10,
+    webpack: {
+      webpackConfig: './webpack.config.js',
+      includeModules: true,
     },
+    // esbuild: {
+    //   bundle: true,
+    //   minify: false,
+    //   sourcemap: true,
+    //   exclude: ['aws-sdk'],
+    //   target: 'node14',
+    //   define: { 'require.resolve': undefined },
+    //   platform: 'node',
+    //   concurrency: 10,
+    // },
   },
 };
 

@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "paths": {
       "@bot": ["src/bot"],
+      "@bot/*": ["src/bot/*"],
       "@handlers": ["src/handlers"],
       "@handlers/*": ["src/handlers/*"],
       "@libs/*": ["src/libs/*"]
